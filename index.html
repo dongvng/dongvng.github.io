@@ -1,11 +1,41 @@
-<html><head></head><body style="
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-"><h1>It's great to have you visit my site, have a good day ;)</h1>
+<html>
+  <head> </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    "
+  >
+    <h1 style="font-size: 3rem">
+      It's great to have you visit my site, have a good day ;)
+    </h1>
 
-<p><em>Dong Nguyen</em></p>
-</body></html>
+    <h3 style="font-size: 2rem"><em>Dong Nguyen</em></h3>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script>
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function () {
+      var particleCount = 100;
+      // since particles fall down, start a bit higher than random
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
+  </script>
+</html>
